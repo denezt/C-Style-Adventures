@@ -18,26 +18,26 @@ void flush_log(){
 	system(command);
 	printf("Command Executed:\t%s\n",command);
 	}
-	
+
 void messageBx(char *out){
 	for(int i=0;i < 1; i++){
 		printf("%s\n",out);
 		sleep(1);
 		system("cls");
-		printf("%s\n",out);	
-		}	
-	}	
-	
-main(int argc, char *argv[]){	
+		printf("%s\n",out);
+		}
+	}
+
+int main(int argc, char *argv[]){
 	//Option Switch
-	if (argc > 1){	
-		char select = *++argv[1];	
+	if (argc > 1){
+		char select = *++argv[1];
 		switch(select){
-			case 'd': 
+			case 'd':
 				printf("Command Executed:\t%s\n",command);
 				printf("Parameter: %c\n",select);
 			break;
-			case 'f': 
+			case 'f':
 				flush_log();
 				printf("Parameter: %c\n",select);
 			break;
@@ -45,7 +45,7 @@ main(int argc, char *argv[]){
 				messageBx("Ping Network!");
 				int limit = 10;
 				if (argc == 3){
-					limit = atoi(argv[2]);	
+					limit = atoi(argv[2]);
 				}
 				sprintf(command,"date /T >> %s",filename);
 				system(command);
@@ -57,12 +57,12 @@ main(int argc, char *argv[]){
 			case 'v':
 				messageBx("Display Log::");
 				sprintf(command,"type %s",filename);
-				system(command);				
-			break;			
+				system(command);
+			break;
 			default:
 				printf("");
-			break;	
+			break;
 			}
-		}	
-	return 0;	
-	}		
+		}
+	return 0;
+	}
