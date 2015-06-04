@@ -27,15 +27,15 @@ Created 24 April 2015
 static const int reps = 10;
 int exit_state = 0;
 
-void ascii_to_int( char g_input ){
-	printf("The Char: %c is %i.\n", g_input, g_input );
+void ascii_to_int( char set_input ){
+	printf("The Char: %c is %i.\n", set_input, set_input );
 	}
 
-int selector( int svar, int g_input ){
+int selector( int svar, int get_input ){
 	int _ret = 0;
 	switch(svar){
 		case 'i':
-			ascii_to_int(g_input);
+			ascii_to_int(get_input);
 		break;
 		default:
 			printf("Error: Missing command parameter!\n");
