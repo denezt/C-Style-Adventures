@@ -46,12 +46,32 @@ int selector( int svar, int get_input ){
 	return _ret;
 	}
 
+void help_menu(){
+	printf("Character Finder\n");
+	printf("charfinder\t-i\t[ convert to integer ]\n");
+	printf("charfinder\t-h\t[ Show help menu ]\n");
+
+
+	}
 
 int main(int argc, char *argv[]){
+
 	if ( argc > 2 ){
-		char _type = *++argv[1];
-		char _input = *argv[2];
+		char 	_type = *++argv[1];
+		char 	_input = *argv[2];
 		selector( _type, _input );
+	} else if ( argc == 2 ){
+		char	option = *++argv[1];
+		//
+		switch ( option ){
+			case 'h':
+				help_menu();
+			break;
+			default:
+				printf("Error: Try 'h' to view options.\n");
+			break;
+			}
+
 	} else {
 		printf(ERRORMSG1);
 		exit_state = 1;
