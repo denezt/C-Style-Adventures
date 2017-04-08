@@ -14,7 +14,7 @@ FILE *fp;
 
 void flush_log(){
 	messageBx("Flushing!");
-	sprintf(command,"del ping_log.log");
+	sprintf(command,"rm ping_log.log");
 	system(command);
 	printf("Command Executed:\t%s\n",command);
 	}
@@ -23,9 +23,17 @@ void messageBx(char *out){
 	for(int i=0;i < 1; i++){
 		printf("%s\n",out);
 		sleep(1);
-		system("cls");
+		system("clear");
 		printf("%s\n",out);
 		}
+	}
+
+
+void help_menu(){
+	printf("Debug\t\t[ -d ]\n");
+	printf("Flush Log\t[ -f ]\n");
+	printf("Ping Net\t[ -p ]\n");
+	printf("View Log\t[ -v ]\n");
 	}
 
 int main(int argc, char *argv[]){
@@ -47,11 +55,11 @@ int main(int argc, char *argv[]){
 				if (argc == 3){
 					limit = atoi(argv[2]);
 				}
-				sprintf(command,"date /T >> %s",filename);
+				sprintf(command,"date '+%s' >> %s", filename);
 				system(command);
-				sprintf(command,"ping -n %i %s >> %s",limit,dest_a,filename);
+				sprintf(command,"ping -c %i %s >> %s",limit,dest_a,filename);
 				system(command);
-				sprintf(command,"ping -n %i %s >> %s",limit,dest_b,filename);
+				sprintf(command,"ping -c %i %s >> %s",limit,dest_b,filename);
 				system(command);
 			break;
 			case 'v':
@@ -59,8 +67,11 @@ int main(int argc, char *argv[]){
 				sprintf(command,"type %s",filename);
 				system(command);
 			break;
+			case 'h':
+				help_menu();
+			break;
 			default:
-				printf("");
+				printf("Try '-h' to view options.\n");
 			break;
 			}
 		}
