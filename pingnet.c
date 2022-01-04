@@ -13,7 +13,7 @@ char command[255];
 FILE *fp;
 
 void flush_log(){
-  messageBx("Flushing!");
+	messageBx("Flushing!");
 	sprintf(command,"rm ping_log.log");
 	system(command);
 	printf("Command Executed:\t%s\n",command);
