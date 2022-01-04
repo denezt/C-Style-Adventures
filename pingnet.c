@@ -13,7 +13,7 @@ char command[255];
 FILE *fp;
 
 void flush_log(){
-	messageBx("Flushing!");
+  messageBx("Flushing!");
 	sprintf(command,"rm ping_log.log");
 	system(command);
 	printf("Command Executed:\t%s\n",command);
@@ -41,36 +41,36 @@ int main(int argc, char *argv[]){
 		char select = *++argv[1];
 		switch(select){
 			case 'd':
-				printf("Command Executed:\t%s\n",command);
-				printf("Parameter: %c\n",select);
+  			printf("Command Executed:\t%s\n",command);
+  			printf("Parameter: %c\n",select);
 			break;
 			case 'f':
-				flush_log();
-				printf("Parameter: %c\n",select);
+  			flush_log();
+  			printf("Parameter: %c\n",select);
 			break;
 			case 'p':
-				messageBx("Ping Network!");
-				int limit = 10;
-				if (argc == 3){
-					limit = atoi(argv[2]);
-				}
-				sprintf(command,"date '+%s' >> %s", filename);
-				system(command);
-				sprintf(command,"ping -c %i %s >> %s",limit,dest_a,filename);
-				system(command);
-				sprintf(command,"ping -c %i %s >> %s",limit,dest_b,filename);
-				system(command);
+        messageBx("Ping Network!");
+        int limit = 10;
+        if (argc == 3){
+          limit = atoi(argv[2]);
+        }
+        sprintf(command,"date '+%s' >> %s", filename);
+        system(command);
+        sprintf(command,"ping -c %i %s >> %s",limit,dest_a,filename);
+        system(command);
+        sprintf(command,"ping -c %i %s >> %s",limit,dest_b,filename);
+        system(command);
 			break;
 			case 'v':
-				messageBx("Display Log::");
-				sprintf(command,"type %s",filename);
-				system(command);
+        messageBx("Display Log::");
+        sprintf(command,"type %s",filename);
+        system(command);
 			break;
 			case 'h':
-				help_menu();
+			  help_menu();
 			break;
 			default:
-				printf("Try '-h' to view options.\n");
+			  printf("Try '-h' to view options.\n");
 			break;
 		}
 	}
