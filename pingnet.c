@@ -17,7 +17,7 @@ void flush_log(){
 	sprintf(command,"rm ping_log.log");
 	system(command);
 	printf("Command Executed:\t%s\n",command);
-	}
+}
 
 void messageBx(char *out){
 	for(int i=0;i < 1; i++){
@@ -25,16 +25,15 @@ void messageBx(char *out){
 		sleep(1);
 		system("clear");
 		printf("%s\n",out);
-		}
 	}
-
+}
 
 void help_menu(){
 	printf("Debug\t\t[ -d ]\n");
 	printf("Flush Log\t[ -f ]\n");
 	printf("Ping Net\t[ -p ]\n");
 	printf("View Log\t[ -v ]\n");
-	}
+}
 
 int main(int argc, char *argv[]){
 	//Option Switch
@@ -73,7 +72,7 @@ int main(int argc, char *argv[]){
 			default:
 				printf("Try '-h' to view options.\n");
 			break;
-			}
 		}
-	return 0;
 	}
+	return 0;
+}
