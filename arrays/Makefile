@@ -8,11 +8,11 @@ all: clean compile test
 
 clean:
 	@printf "Cleaning, older sessions.\n"
-	@rm -rfv $(CTNR)
+	@find * -type f -wholename "$(CTNR)/$(PRGNAME)" -delete
 
 compile:
 	@printf "Compiling $(PRGNAME)\n"
-	mkdir -v $(CTNR)
+	@mkdir -v $(CTNR) 2> /dev/null || true
 	$(CC) $(PRGNAME).c $(CFLGS) $(CTNR)/$(PRGNAME)
 
 test:
