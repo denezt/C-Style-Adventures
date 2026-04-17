@@ -13,3 +13,5 @@
 
 # Compiled files
 **/session/**
+**/build/**
+**/dist/**

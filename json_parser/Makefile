@@ -3,6 +3,8 @@ CFLGS=-o
 PRGNAME=json_parser
 CTNR=session
 
+.PHONY: all clean compile test
+
 all: clean compile test
 	@printf "Finished, build from sources...\n"
 
@@ -14,7 +16,7 @@ compile:
 	@printf "Compiling $(PRGNAME)\n"
 	mkdir -v $(CTNR)
 	$(CC) $(PRGNAME).c $(CFLGS) $(PRGNAME) -ljansson
-	cp -a -v $(PRGNAME) $(CTNR)/$(PRGNAME)
+	mv -v $(PRGNAME) $(CTNR)/$(PRGNAME)
 
 test:
 	@printf "Starting, to test $(PRGNAME)\n"
